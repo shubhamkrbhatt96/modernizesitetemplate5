@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Bell</title>
+    <link rel="stylesheet" href="trial.css">
+</head>
+
+<body>
+    <div id="app-cover">
+        <div class="app">
+            <div class="bell-cover">
+                <div class="bell-icon active">
+                    <div class="bell-top"></div>
+                    <div class="bell-middle">
+                        <div class="bell-curve bell-left-curve"></div>
+                        <div class="bell-curve bell-right-curve"></div>
+                    </div>
+                    <div class="bell-bottom"></div>
+                    <div class="bell-clapper"></div>
+                </div>
+                <div class="notifications-count active zindex">5</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var bellIcon = $(".bell-icon"),
+                notifsCount = $(".notifications-count");
+
+            bellIcon.on("click", function () {
+                notifsCount.toggleClass("active");
+
+                $(this).toggleClass("active");
+
+                if (notifsCount.hasClass("active")) notifsCount.addClass("zindex");
+                else
+                    setTimeout(function () {
+                        notifsCount.removeClass("zindex");
+                    }, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>
